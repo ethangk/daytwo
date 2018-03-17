@@ -9,7 +9,7 @@ interface StateFromProps {
 }
 
 interface DispatchFromProps {
-  onChange: (e: React.FormEvent<HTMLInputElement>) => void;
+  onChange: (e: React.FormEvent<HTMLTextAreaElement>) => void;
 }
 
 function mapStateToProps(state: StoreState) {
@@ -18,14 +18,14 @@ function mapStateToProps(state: StoreState) {
   };
 }
 
-function onChangeHandler(e: React.FormEvent<HTMLInputElement>, dispatch: Dispatch<actions.EditorAction>): void {
-    const value: string = (e.target as HTMLInputElement).value;
+function onChangeHandler(e: React.FormEvent<HTMLTextAreaElement>, dispatch: Dispatch<actions.SetEditorContent>): void {
+    const value: string = (e.target as HTMLTextAreaElement).value;
     dispatch(actions.setEditorContent(value));
 }
 
-function mapDispatchToProps(dispatch: Dispatch<actions.EditorAction>) {
+function mapDispatchToProps(dispatch: Dispatch<actions.SetEditorContent>) {
   return {
-    onChange: (e: React.FormEvent<HTMLInputElement>) => {
+    onChange: (e: React.FormEvent<HTMLTextAreaElement>) => {
       onChangeHandler(e, dispatch);
     }
   };
