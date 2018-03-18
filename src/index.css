@@ -137,6 +137,8 @@ a {
 /* Email Item Styles */
 .email-item {
   padding: 0.9em 1em;
+  height: 4.5rem;
+  overflow: hidden;
   border-bottom: 1px solid #ddd;
   border-left: 6px solid transparent;
 }
@@ -273,6 +275,7 @@ a {
       position: static;
       margin: 0;
       padding: 0;
+      width: 100%;
   }
 }
 
