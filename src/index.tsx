@@ -1,10 +1,12 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { createStore } from 'redux';
+import { compose, createStore } from 'redux';
 import { editor } from './reducers/index';
 import { StoreState } from './types/index';
 import { Provider } from 'react-redux';
 import 'purecss';
+import persistState from 'redux-localstorage';
+
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import './index.css';
@@ -12,8 +14,11 @@ import './index.css';
 declare global {
   interface Window {
     __REDUX_DEVTOOLS_EXTENSION__: Function;
+    __REDUX_DEVTOOLS_EXTENSION_COMPOSE__: Function;
   }
 }
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const store = createStore<StoreState>(
   editor, {
@@ -21,7 +26,7 @@ const store = createStore<StoreState>(
     current: -1,
     entries: []
   },
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  composeEnhancers(persistState())
 );
 
 ReactDOM.render(

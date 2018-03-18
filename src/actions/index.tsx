@@ -18,7 +18,7 @@ export interface AddEntry {
     entry: types.Entry;
 }
 
-export function addArticle(entry: types.Entry): AddEntry {
+export function addEntry(entry: types.Entry): AddEntry {
     return {
         type: constants.ADD_ENTRY,
         entry
