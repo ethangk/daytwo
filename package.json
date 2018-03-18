@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@types/classnames": "^2.2.3",
     "@types/react-redux": "^5.0.15",
+    "classnames": "^2.2.5",
     "purecss": "^1.0.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
