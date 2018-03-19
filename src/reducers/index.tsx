@@ -2,7 +2,7 @@
 
 import { ActionTypes } from '../actions';
 import { StoreState } from '../types/index';
-import { SET_EDITOR_CONTENT, ADD_ENTRY } from '../constants/index';
+import { SET_EDITOR_CONTENT, ADD_ENTRY, SET_CURRENT_ENTRY } from '../constants/index';
 
 export function editor(state: StoreState, action: ActionTypes): StoreState {
   switch (action.type) {
@@ -12,6 +12,11 @@ export function editor(state: StoreState, action: ActionTypes): StoreState {
       return {
         ...state,
         entries: [...state.entries, action.entry]
+      };
+    case SET_CURRENT_ENTRY:
+      return {
+        ...state,
+        current: action.id
       };
     default:
       return state;

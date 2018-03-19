@@ -1,15 +1,15 @@
 import * as React from 'react';
-import Nav from './Nav';
-import ItemList from './ItemList';
-import EditorPane from './EditorPane';
+import NavContainer from '../containers/NavContainer';
+import ItemListContainer from '../containers/ItemListContainer';
+import EditorPaneContainer from '../containers/EditorPaneContainer';
 
 export default class MainLayout extends React.PureComponent {
     render () {
         return (
         <div id="layout" className="content pure-g">
-            <Nav />        
-            <ItemList />
-            <EditorPane />
+            <NavContainer />        
+            <ItemListContainer />
+            <EditorPaneContainer />
         </div>);
     }
 }

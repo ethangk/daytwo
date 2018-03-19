@@ -25,4 +25,16 @@ export function addEntry(entry: types.Entry): AddEntry {
     };
 }
 
-export type ActionTypes = SetEditorContent | AddEntry;
+export interface SelectEntry {
+    type: constants.SET_CURRENT_ENTRY;
+    id: number;
+}
+
+export function selectEntry(id: number): SelectEntry {
+    return {
+        type: constants.SET_CURRENT_ENTRY,
+        id
+    };
+}
+
+export type ActionTypes = SetEditorContent | AddEntry | SelectEntry;

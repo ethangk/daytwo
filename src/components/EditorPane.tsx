@@ -2,7 +2,8 @@ import * as React from 'react';
 import ContentBoxContainer from '../containers/ContentBoxContainer';
 
 interface EditorPaneProps {
-    editButton?: () => void;
+    editClick: () => void;
+    deleteClick: () => void;
 }
 
 const EditorPane: React.SFC<EditorPaneProps> = (props) => {
@@ -18,7 +19,8 @@ const EditorPane: React.SFC<EditorPaneProps> = (props) => {
                     </div>
     
                     <div className="email-content-controls pure-u-1-2">
-                        <button className="secondary-button pure-button" onClick={props.editButton}>Edit</button>
+                        <button className="secondary-button pure-button" onClick={props.editClick}>Edit</button>
+                        <button className="secondary-button pure-button" onClick={props.deleteClick}>Delete</button>
                     </div>
                 </div>
     
@@ -28,10 +30,6 @@ const EditorPane: React.SFC<EditorPaneProps> = (props) => {
             </div>
         </div>
     );
-};
-
-EditorPane.defaultProps = {
-    editButton: () => { return null; }
 };
 
 export default EditorPane;
