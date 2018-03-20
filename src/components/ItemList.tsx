@@ -5,6 +5,7 @@ import * as types from '../types/index';
 
 interface ItemListProps {
     entries: Array<types.Entry>;
+    current: number;
 }
 
 const ItemList: React.SFC<ItemListProps> = (props) => {
@@ -13,9 +14,11 @@ const ItemList: React.SFC<ItemListProps> = (props) => {
             <ItemContainer
                 name={entry.name}
                 subject={'hello'}
-                description={'hello2'}
+                description={entry.content}
                 key={entry.created}
                 id={entry.created}
+                selected={props.current === entry.created}
+                unread={props.current === entry.created}
             />
         );
     });

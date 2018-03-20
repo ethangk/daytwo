@@ -141,6 +141,7 @@ a {
   overflow: hidden;
   border-bottom: 1px solid #ddd;
   border-left: 6px solid transparent;
+  cursor: pointer;
 }
   .email-avatar {
       border-radius: 3px;

@@ -1,5 +1,6 @@
 import * as React from 'react';
 import * as actions from '../actions/';
+import * as types from '../types/';
 import { StoreState } from '../types/index';
 import { connect, Dispatch } from 'react-redux';
 import ContentBox from '../components/ContentBox';
@@ -13,8 +14,10 @@ interface DispatchFromProps {
 }
 
 function mapStateToProps(state: StoreState) {
+  const currentEntry: types.Entry | undefined = state
+    .entries.find(entry => entry.created === state.current) || undefined;
   return {
-    content: state.editorContent
+    content:  (currentEntry && currentEntry.content) || ''
   };
 }
 

@@ -12,8 +12,7 @@ function constructEmptyEntry(): types.Entry {
     name: 'helloName',
     created: new Date().getTime(),
     updated: 1,
-    content: 'helloContent',
-    id: 0
+    content: 'helloContent'
   };
   return emptyEntry;
 }

@@ -37,4 +37,16 @@ export function selectEntry(id: number): SelectEntry {
     };
 }
 
-export type ActionTypes = SetEditorContent | AddEntry | SelectEntry;
+export interface DeleteEntry {
+    type: constants.DELETE_ENTRY;
+    id: number;
+}
+
+export function deleteEntry(id: number): DeleteEntry {
+    return {
+        type: constants.DELETE_ENTRY,
+        id
+    };
+}
+
+export type ActionTypes = SetEditorContent | AddEntry | SelectEntry | DeleteEntry;

@@ -5,7 +5,6 @@ export interface Entry {
     created: number;
     updated: number;
     content: string;
-    id: number;
 }
 
 export interface StoreState {
