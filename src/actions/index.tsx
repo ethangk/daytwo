@@ -49,4 +49,14 @@ export function deleteEntry(id: number): DeleteEntry {
     };
 }
 
-export type ActionTypes = SetEditorContent | AddEntry | SelectEntry | DeleteEntry;
+export interface ToggleEditing {
+    type: constants.TOGGLE_EDITING;
+}
+
+export function toggleEditing(): ToggleEditing {
+    return {
+        type: constants.TOGGLE_EDITING
+    };
+}
+
+export type ActionTypes = SetEditorContent | AddEntry | SelectEntry | DeleteEntry | ToggleEditing;

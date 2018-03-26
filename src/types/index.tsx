@@ -11,4 +11,5 @@ export interface StoreState {
     editorContent: string;
     current: number;
     entries: Array<Entry>;
+    editing: boolean;
 }

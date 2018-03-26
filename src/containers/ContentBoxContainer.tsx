@@ -7,6 +7,7 @@ import ContentBox from '../components/ContentBox';
 
 interface StateFromProps {
   content: string;
+  editing: boolean;
 }
 
 interface DispatchFromProps {
@@ -17,7 +18,8 @@ function mapStateToProps(state: StoreState) {
   const currentEntry: types.Entry | undefined = state
     .entries.find(entry => entry.created === state.current) || undefined;
   return {
-    content:  (currentEntry && currentEntry.content) || ''
+    content:  (currentEntry && currentEntry.content) || '',
+    editing: state.editing
   };
 }
 

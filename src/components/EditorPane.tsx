@@ -4,11 +4,18 @@ import ContentBoxContainer from '../containers/ContentBoxContainer';
 interface EditorPaneProps {
     editClick: () => void;
     deleteClick: () => void;
-    name: string;
+    name: string | null;
     created: number | null;
+    editing: boolean;
 }
 
 const EditorPane: React.SFC<EditorPaneProps> = (props) => {
+    if (props.name === null && props.created === null) {
+        return (
+            <div id="main" />
+        );
+    }
+    const editButtonText = (props.editing ? 'Done' : 'Edit');
     const boundDeleteClick = props.deleteClick.bind(null, props.created);
     return (
         <div id="main" className="pure-u-1">
@@ -22,7 +29,9 @@ const EditorPane: React.SFC<EditorPaneProps> = (props) => {
                     </div>
     
                     <div className="email-content-controls pure-u-1-2">
-                        <button className="secondary-button pure-button" onClick={props.editClick}>Edit</button>
+                        <button className="secondary-button pure-button" onClick={props.editClick}>
+                            {editButtonText}
+                        </button>
                         <button className="secondary-button pure-button" onClick={boundDeleteClick}>Delete</button>
                     </div>
                 </div>

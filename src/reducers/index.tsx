@@ -3,7 +3,9 @@
 import { ActionTypes } from '../actions';
 import * as types from '../types';
 import { StoreState } from '../types/index';
-import { SET_EDITOR_CONTENT, ADD_ENTRY, SET_CURRENT_ENTRY, DELETE_ENTRY } from '../constants/index';
+import {
+  SET_EDITOR_CONTENT, ADD_ENTRY, SET_CURRENT_ENTRY, DELETE_ENTRY, TOGGLE_EDITING
+} from '../constants/index';
 
 export function editor(state: StoreState, action: ActionTypes): StoreState {
   switch (action.type) {
@@ -32,12 +34,18 @@ export function editor(state: StoreState, action: ActionTypes): StoreState {
     case SET_CURRENT_ENTRY:
       return {
         ...state,
-        current: action.id
+        current: action.id,
+        editing: false
       };
     case DELETE_ENTRY:
       return {
         ...state,
         entries: state.entries.filter(entry => entry.created !== action.id)
+      };
+    case TOGGLE_EDITING:
+      return {
+        ...state,
+        editing: !state.editing
       };
     default:
       return state;

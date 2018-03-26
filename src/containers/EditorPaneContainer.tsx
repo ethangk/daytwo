@@ -12,6 +12,7 @@ function mapDispatchToProps(dispatch: Dispatch<actions.ActionTypes>) {
   return {
     editClick: () => {
       // do something
+      dispatch(actions.toggleEditing());
     },
     deleteClick: (id: number) => {
       // do something
@@ -21,18 +22,20 @@ function mapDispatchToProps(dispatch: Dispatch<actions.ActionTypes>) {
 }
 
 interface StateFromProps {
-  name: string;
+  name: string | null;
   created: number | null;
+  editing: boolean;
 }
 
 function mapStateToProps(state: types.StoreState) {
   const currentEntry = state.entries.find(entry => entry.created === state.current) || {
-    name: 'Not found',
+    name: null,
     created: null
   };
   return {
     name: currentEntry.name,
-    created: currentEntry.created
+    created: currentEntry.created,
+    editing: state.editing
   };
 }
 

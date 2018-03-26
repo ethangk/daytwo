@@ -24,7 +24,8 @@ const store = createStore<StoreState>(
   editor, {
     editorContent: '',
     current: -1,
-    entries: []
+    entries: [],
+    editing: false
   },
   composeEnhancers(persistState())
 );
